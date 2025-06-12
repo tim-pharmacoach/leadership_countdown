@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Leadership Countdown</title>
+  <style>
+    /* === Global Styles === */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #ffffff;
+      color: #333;
+      line-height: 1.5;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .header {
+      background-color: #9bcea4;
+      color: black;
+      padding: 30px;
+      text-align: left;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: left;
+      justify-content: left;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .logo {
+      max-height: 80px;
+      width: auto;
+      border-radius: 9px; /* Adjust this value as needed */
+    }
+
+    .text-block {
+      text-align: left;
+    }
+
+    .header h1 {
+      font-size: 2.2em;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+
+    .brand {
+      font-size: 0.9em;
+      font-weight: 500;
+      letter-spacing: 1px;
+      opacity: 0.9;
+      margin-bottom: 15px;
+    }
+
+    .tagline {
+      font-size: 0.85em;
+      letter-spacing: 3px;
+      opacity: 0.8;
+      border-top: 1px solid rgba(255,255,255,0.3);
+      padding-top: 15px;
+    }
+
+
+    /* === Header Block === */
+    .header-block {
+      background: #9bcea4;
+      color: #ffffff;
+      padding: 40px 40px 30px;
+      text-align: center;
+      border-radius: 16px 16px 0 0;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .logo-placeholder {
+      width: 80px;
+      height: 80px;
+      background: #ffffff;
+      border-radius: 8px;
+      margin-right: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .logo-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin: 10px 0 0;
+      opacity: 0.9;
+    }
+
+    .tagline {
+      font-size: 1rem;
+      font-weight: 400;
+      margin: 20px 0 0;
+      opacity: 0.8;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    /* === Info Block === */
+    .info-block {
+      background: #ffffff;
+      padding: 40px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .info-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    .info-content {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #4a5568;
+      margin-bottom: 15px;
+    }
+
+    .info-content strong {
+      color: #2c3e50;
+      font-weight: 600;
+    }
+
+    /* === Calculator Block === */
+    .calculator-block {
+      background: #f8d7da;
+      padding: 40px;
+    }
+
+    .calculator-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #2c3e50;
+      font-size: 1rem;
+    }
+
+    select, input[type="number"] {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 1rem;
+      color: #2c3e50;
+      background: #ffffff;
+      box-sizing: border-box;
+    }
+
+    select:focus, input[type="number"]:focus {
+      outline: none;
+      border-color: #9bcea4;
+    }
+
+    button {
+      width: 100%;
+      padding: 18px;
+      background: #9bcea4;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    button:hover {
+      background: #7fb087;
+      transform: translateY(-2px);
+    }
+
+    .explainer {
+        text-align: center;
+    }
+
+    /* === Results Block === */
+    .results-block {
+      display: none;
+      background: #2c3e50;
+      color: #ffffff;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .results-title {
+      color: #e74c3c;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .results-subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      opacity: 0.9;
+    }
+
+    .results-stats {
+      font-size: 1.1rem;
+      margin: 12px 0;
+      opacity: 0.8;
+    }
+
+    .quote-box {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 30px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      font-style: italic;
+    }
+
+    /* === Footer Block === */
+    .footer-block {
+      background: #9bcea4;
+      color: #ffffff;
+      padding: 30px 40px;
+      text-align: center;
+      border-radius: 0 0 16px 16px;
+    }
+
+    .footer-content {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    .footer-links {
+      margin: 20px 0;
+    }
+
+    .footer-links a {
+      display: block;
+      color: #ffffff;
+      text-decoration: none;
+      margin: 8px 0;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    .copyright {
+      margin-top: 20px;
+      font-size: 0.8rem;
+      opacity: 0.7;
+    }
+
+    /* === Responsive === */
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+      
+      .header-block, .info-block, .calculator-block, .results-block, .footer-block {
+        padding: 30px 20px;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .logo-section {
+        flex-direction: row;
+        text-align: left;
+      }
+      
+      .logo-placeholder {
+        margin-right: 15px;
+        margin-bottom: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header Block -->
+    <div class="container">
+        <div class="header">
+          <div class="header-content">
+            <img src="The Pharma-Coach-Logo_SOCIAL-logo.jpg" alt="Logo" class="logo">
+            <div class="text-block">
+              <h1>YOUR LEADERSHIP COUNTDOWN</h1>
+              <div class="brand">T H E &nbsp; P H A R M A  &nbsp; C O A C H</div>
+            </div>
+          </div>
+        </div>
+
+    <!-- Info Block -->
+    <div class="info-block">
+      <div class="info-title">Every 12 years of your life equals one day. What day are you on?</div>
+      <p class="info-content">
+        <strong>The Concept:</strong> Imagine your entire life as a single week (Monday to Sunday). Each day of this week represents 12 years of your actual life. This framework helps you focus on what truly matters by visualising time in a way that creates urgency and clarity.
+      </p>
+      <p class="info-content">
+        <strong>Why this matters:</strong> This perspective transforms how you approach leadership, legacy, and the time you have left to make an impact.
+      </p>
+    </div>
+
+    <!-- Calculator Block -->
+    <div class="calculator-block">
+      <div class="form-group">
+        <label for="month">Birth Month:</label>
+        <select id="month">
+          <option value="">Select Month</option>
+          <option value="1">January</option>
+          <option value="2">February</option>
+          <option value="3">March</option>
+          <option value="4">April</option>
+          <option value="5">May</option>
+          <option value="6">June</option>
+          <option value="7">July</option>
+          <option value="8">August</option>
+          <option value="9">September</option>
+          <option value="10">October</option>
+          <option value="11">November</option>
+          <option value="12">December</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="year">Birth Year:</label>
+        <input type="number" id="year" placeholder="e.g., 1976" />
+      </div>
+
+      <button onclick="calculateCountdown()">Calculate My Leadership Countdown</button>
+
+      <div class = "explainer">
+        <p>
+            Every 12 years = 1 day | Retirement at 65 | Life expectancy: 84
+          </p>
+      </div>
+      
+    </div>
+
+    <!-- Results Block -->
+    <div id="results" class="results-block">
+      <h2 id="dayOutput" class="results-title"></h2>
+      <p class="results-subtitle">Your leadership countdown has begun</p>
+      <p id="lifeDaysOutput" class="results-stats"></p>
+      <p id="retirementDaysOutput" class="results-stats"></p>
+      <div class="quote-box">
+        The clock is ticking. What legacy will you build with the time you have left?
+      </div>
+    </div>
+
+    <!-- Footer Block -->
+    <div class="footer-block">
+      <div class="footer-content">
+        Based on the framework: Every 12 years = 1 day | Retirement at 65 | Life expectancy: 84
+      </div>
+      <div class="footer-links">
+        <a href="https://thepharmacoach.co" target="_blank">🌐 thepharmacoach.co</a>
+        <a href="mailto:ben@thepharmacoach.co">📧 ben@thepharmacoach.co</a>
+        <a href="#">📬 Sign up for Weekly leadership tips</a>
+      </div>
+      <div class="copyright">
+        © The Pharma Coach Team
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function calculateCountdown() {
+      const m = parseInt(document.getElementById("month").value, 10);
+      const y = parseInt(document.getElementById("year").value, 10);
+      if (!m || !y || isNaN(y)) {
+        alert("Please enter both birth month and year.");
+        return;
+      }
+
+      const birth = new Date(y, m - 1);
+      const now = new Date();
+      const ageY = (now - birth) / (365.25 * 24 * 60 * 60 * 1000);
+
+      const lifeExp = 84;
+      const retirement = 65;
+      const yearsPerDay = 12;
+
+      const totalDays = lifeExp / yearsPerDay;
+      const usedDays = ageY / yearsPerDay;
+      const daysLeft = Math.max(0, totalDays - usedDays).toFixed(1);
+      const daysToRetire = Math.max(0, (retirement - ageY) / yearsPerDay).toFixed(1);
+
+      const dayIndex = Math.min(Math.floor(usedDays), 6);
+      const dayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+      const times = ["morning", "afternoon", "evening", "night"];
+      const frac = usedDays - Math.floor(usedDays);
+      const timeIndex = Math.min(Math.floor(frac * 4), 3);
+
+      document.getElementById("dayOutput").textContent = `It's ${times[timeIndex]} on ${dayNames[dayIndex]}`;
+      document.getElementById("lifeDaysOutput").textContent = `Days left to live: ${daysLeft} days`;
+      document.getElementById("retirementDaysOutput").textContent = `Days left to retirement: ${daysToRetire} days`;
+      document.getElementById("results").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
